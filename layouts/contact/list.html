@@ -17,17 +17,19 @@
         </ul>
       </div>
       {{ end }}
+      {{ with .Params.opening_hour }}
       <div class="col-lg-3 col-sm-6 mb-5">
-        {{ with .Params.opennig_hour }}
+
         <h2 class="font-weight-bold mb-4">{{ .title | markdownify }}</h2>
         <ul class="list-unstyled">
           {{ range .day_time }}
           <li class="mb-2">{{ . | markdownify }}</li>
           {{ end }}
         </ul>
-        {{ end }}
       </div>
+        {{ end }}      
     </div>
+    {{ if isset site.Params "contact_form_action" }}
     <div class="row justify-content-center">
       <div class="col-lg-8">
         <h2 class="font-weight-bold mb-4">{{ .Title | markdownify }}</h2>
@@ -47,6 +49,7 @@
         </form>
       </div>
     </div>
+    {{ end }}
   </div>
 </section>
 
