@@ -23,7 +23,9 @@
           <p>{{ .content | markdownify }}</p>
           {{ if .button.enable }}
           {{ with .button }}
-          <a href="{{ .link | absURL }}" class="btn btn-main btn-main-sm">{{ .label }}</a>
+          <a href="{{ .link | absURL }}" class="btn btn-main btn-main-sm"
+	     {{ with site.GoogleAnalytics }} onclick="gtag('event', Download {'event_category' : 'engagement' , 'event_label' : 'garmin-site'});" {{ end }}>
+	    {{ .label }}</a>
           {{ end }}
           {{ end }}
         </div>
