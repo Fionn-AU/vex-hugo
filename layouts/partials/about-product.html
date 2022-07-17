@@ -28,7 +28,7 @@
 	    {{ .label }}</a>
           {{ end }}
 	  <p class="mt-30">{{ .buyContent | markdownify }}</p>
-          <a href="{{ $data.homepage.buy_product.checkoutLink | absURL }}" class="btn btn-main btn-main-sm"
+          <a href="{{ site.Params.checkout.checkoutLink | absURL }}" class="btn btn-main btn-main-sm"
 	     {{ with site.GoogleAnalytics }} onclick="gtag('event', Download {'event_category' : 'engagement' , 'event_label' : 'garmin-site'});" {{ end }}>
 	    {{ .buyButton.label }}</a>
 

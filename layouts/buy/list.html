@@ -21,7 +21,7 @@
 	</div>
 	<div class="block mt-60 align-self-center text-center">
 	  <p class="mb-4">{{ .buyContent | markdownify }}</p>
-	  <a href="{{.checkoutLink|absLangURL}}" class="btn btn-main"
+	  <a href="{{site.Params.checkout.checkoutLink|absLangURL}}" class="btn btn-main"
 	     {{ with site.GoogleAnalytics }} onclick="gtag('event', Download {'event_category' : 'engagement' , 'event_label' : 'garmin-site'});" {{ end }}>
 	    {{.buyButton.label}}</a>
 	</div>
