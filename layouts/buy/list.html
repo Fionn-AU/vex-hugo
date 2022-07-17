@@ -1,0 +1,34 @@
+{{ define "main" }}
+{{ $data := index .Site.Data .Site.Language.Lang }}
+
+{{ if $data.homepage.buy_product.enable }}
+{{ with $data.homepage.buy_product }}
+
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 align-self-center text-center text-md-left">
+	</div>
+      <div class="col-md-6 align-self-center text-center text-md-left">
+	<div class="block align-self-center text-center">
+	  <h1 class="font-weight-bold mb-4 font-size-60 ">{{ .title | markdownify }}</h1>
+	  <p class="mb-4">{{ .tryContent | markdownify }}</p>
+	  {{ with .tryButton }}
+	  <a href="{{.link|absLangURL}}" class="btn btn-main"
+	     {{ with site.GoogleAnalytics }} onclick="gtag('event', Download {'event_category' : 'engagement' , 'event_label' : 'garmin-site'});" {{ end }}>
+	    {{.label}}</a>
+	  {{ end }}
+	</div>
+	<div class="block mt-60 align-self-center text-center">
+	  <p class="mb-4">{{ .buyContent | markdownify }}</p>
+	  <a href="{{.checkoutLink|absLangURL}}" class="btn btn-main"
+	     {{ with site.GoogleAnalytics }} onclick="gtag('event', Download {'event_category' : 'engagement' , 'event_label' : 'garmin-site'});" {{ end }}>
+	    {{.buyButton.label}}</a>
+	</div>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ end }}
+{{ end }}
