@@ -16,7 +16,7 @@
 					{{ if .button.enable }}
 					{{ with .button }}
 					<a href="{{.link|absLangURL}}" class="btn btn-main"
-					   {{ with site.GoogleAnalytics }} onclick="gtag('event', Download {'event_category' : 'engagement' , 'event_label' : 'garmin-site'});" {{ end }}>
+					   {{ with site.Config.Services.GoogleAnalytics.ID }} onclick="gtag('event', Download {'event_category' : 'engagement' , 'event_label' : 'garmin-site'});" {{ end }}>
 					  {{.label}}</a>
 					{{ end }}
 					{{ end }}
