@@ -1,0 +1,21 @@
+{{ define "main" }}
+{{ $data := index .Site.Data .Site.Language.Lang }}
+
+{{ if $data.homepage.buy_product.enable }}
+{{ with $data.homepage.buy_product }}
+
+<section class="section">
+  <div class="container">
+    <iframe width="800px" height="1200px"
+	    allow="payment"
+	    src="https://10.1.1.53:9630/checkout.html"
+	    />
+    <p class="mb-4">{{ .Content | markdownify }}</p>
+    stuff
+  </div>
+  
+</section>
+
+{{ end }}
+{{ end }}
+{{ end }}
